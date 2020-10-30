@@ -67,18 +67,17 @@ if(isset($_GET['id']) AND !empty($_GET['id'])){
 
 <div class="container">
     <header>
-        <a href="index.html"><img src="images/japan-banner.jpg"></a>
     </header>
     <section>
         <div class="row">
-            <div class="col-md-8">
+            <div class="">
                 <article class="blog-post">
                     <div class="blog-post-image">
-                        <a href="post.html"><img src="images/food.jpg" alt=""></a>
+                        <img src="https://picsum.photos/1140/500?random=1">
                     </div>
                     <div class="blog-post-body">
                         <div class="blog-post-text">
-                            <div class="container col-md-6 mt-5 mb-5">
+                            <div class="container">
                                 <div class="card card-body" style="padding: 1.25rem !important">
                                     <h1><?= $title ?></h1>
                                     <p><?= $content ?></p>
@@ -98,28 +97,11 @@ if(isset($_GET['id']) AND !empty($_GET['id'])){
 </div><!-- /.container -->
 
 <footer class="footer">
-
-    <div class="footer-socials">
-        <a href="#"><i class="fa fa-facebook"></i></a>
-        <a href="#"><i class="fa fa-twitter"></i></a>
-        <a href="#"><i class="fa fa-instagram"></i></a>
-        <a href="#"><i class="fa fa-google-plus"></i></a>
-        <a href="#"><i class="fa fa-dribbble"></i></a>
-        <a href="#"><i class="fa fa-reddit"></i></a>
-    </div>
-
     <div class="footer-bottom">
         <i class="fa fa-copyright"></i>Blog Japan<br>
     </div>
 </footer>
 
-<!-- Bootstrap core JavaScript
-        ================================================== -->
-<!-- Placed at the end of the document so the pages load faster -->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-<script src="js/bootstrap.min.js"></script>
-<script src="js/jquery.bxslider.js"></script>
-<script src="js/mooz.scripts.min.js"></script>
 </body>
 
 </html>
