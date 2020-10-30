@@ -6,12 +6,11 @@ require('function.php');
 
 $article = $pdo->query('SELECT * FROM article ORDER BY id DESC');
 $categories = $pdo->query('SELECT * FROM categories ORDER BY id DESC');
-//relier la table article et categories par les colomnes category_id et id
-$sql = $pdo->query("SELECT * FROM categories, article WHERE article.category_id = categories.id ORDER BY created_at DESC");
-$query = $pdo->prepare($sql);
-$query->execute();
-//retourne un tableau indexé par le nom de la colonne comme retourné dans le jeu de résultats
-$articles = $query->fetchAll(PDO::FETCH_ASSOC);
+
+$sql = $pdo->prepare("SELECT * FROM categories, article WHERE article.category_id = categories.id ORDER BY createdAt DESC");
+$sql->execute();
+
+$articles = $sql->fetchAll(PDO::FETCH_ASSOC);
 
 ?>
 
@@ -140,7 +139,7 @@ $articles = $query->fetchAll(PDO::FETCH_ASSOC);
                                         <a href="articleDetails.php?id=<?= $a['id'] ?>"> <?= $a['title'] ?></a>
                                     </li>
                                 <?php } ?>
-                            </ul
+                            </ul>
                             <form action="byCat.php" method="GET">
                                 <div>
                                     <select name="category_id">
