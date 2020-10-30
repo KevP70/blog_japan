@@ -4,10 +4,10 @@ session_start();
 require_once('connect.php');
 require('function.php');
 
-$article = $pdo->query('SELECT * FROM article ORDER BY id DESC');
-$categories = $pdo->query('SELECT * FROM categories ORDER BY id DESC');
+$article = $pdo->query('SELECT * FROM article ORDER BY id ASC');
+$categories = $pdo->query('SELECT * FROM categories ORDER BY id ASC');
 
-$sql = $pdo->prepare("SELECT * FROM categories, article WHERE article.category_id = categories.id ORDER BY createdAt DESC");
+$sql = $pdo->prepare("SELECT * FROM categories, article WHERE article.category_id = categories.id ORDER BY createdAt ASC");
 $sql->execute();
 
 $articles = $sql->fetchAll(PDO::FETCH_ASSOC);
@@ -20,20 +20,16 @@ $articles = $sql->fetchAll(PDO::FETCH_ASSOC);
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
     <meta name="description" content="">
     <meta name="author" content="">
     <link rel="icon" href="favicon.ico">
     <title>Blog Japan</title>
-    <!-- Bootstrap core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
-    <!-- Custom styles for this template -->
     <link href="css/jquery.bxslider.css" rel="stylesheet">
     <link href="css/style.css" rel="stylesheet">
 </head>
 <body>
-<!-- Navigation -->
 <style>
     .nav-item {
         padding-right: .5rem;
@@ -82,7 +78,7 @@ $articles = $sql->fetchAll(PDO::FETCH_ASSOC);
                         <a href="#"><img src="images/food.jpg" alt=""></a>
                     </div>
                     <div class="blog-post-body">
-                        <h2><a href="#">JAPAN FOOD</a></h2>
+                        <h2>SEASONS</h2>
                         <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quasi quisquam ipsa inventore?
                             Eos suscipit soluta laudantium cupiditate, quod commodi maxime corporis, rem ducimus
                             error perferendis quae optio veritatis officiis non!</p>
@@ -94,7 +90,7 @@ $articles = $sql->fetchAll(PDO::FETCH_ASSOC);
                         <a href="#"><img src="images/visit.jpg" alt=""></a>
                     </div>
                     <div class="blog-post-body">
-                        <h2><a href="#">JAPAN TOURISME</a></h2>
+                        <h2>JAPANESE FOOD</h2>
                         <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quasi quisquam ipsa inventore?
                             Eos suscipit soluta laudantium cupiditate, quod commodi maxime corporis, rem ducimus
                             error perferendis quae optio veritatis officiis non!</p>
@@ -106,7 +102,7 @@ $articles = $sql->fetchAll(PDO::FETCH_ASSOC);
                         <a href="#"><img src="images/TokyoSafari.jpg" alt=""></a>
                     </div>
                     <div class="blog-post-body">
-                        <h2><a href="#">JAPAN LIFE</a></h2>
+                        <h2>TOURISMq</h2>
                         <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quasi quisquam ipsa inventore?
                             Eos suscipit soluta laudantium cupiditate, quod commodi maxime corporis, rem ducimus
                             error perferendis quae optio veritatis officiis non!</p>
@@ -133,13 +129,6 @@ $articles = $sql->fetchAll(PDO::FETCH_ASSOC);
                     <div class="sidebar-widget">
                         <h3 class="sidebar-title">Categories</h3>
                         <div class="widget-container">
-                            <ul class="ld">
-                                <?php while ($a = $article->fetch()) { ?>
-                                    <li>
-                                        <a href="articleDetails.php?id=<?= $a['id'] ?>"> <?= $a['title'] ?></a>
-                                    </li>
-                                <?php } ?>
-                            </ul>
                             <form action="byCat.php" method="GET">
                                 <div>
                                     <select name="category_id">

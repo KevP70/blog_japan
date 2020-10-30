@@ -1,12 +1,13 @@
+
 <?php
 session_start();
 require_once('connect.php');
 
-    $id = $_REQUEST["article_delete"];
-    $id = intval($id);
-    $req = $pdo->prepare("DELETE FROM article WHERE id = $id ");
-    $req->execute();   
-    
+$id = $_REQUEST["article_delete"];
+$id = intval($id);
+$req = $pdo->prepare("DELETE FROM article WHERE id = $id ");
+$req->execute();
+
 ?>
 
 <!DOCTYPE html>
@@ -19,6 +20,8 @@ require_once('connect.php');
 </head>
 
 <body>
+
+    <h1>Votre article a bien été supprimé</h1>
 
 </body>
 </html>

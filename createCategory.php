@@ -1,9 +1,13 @@
 <?php
 session_start();
 require_once('connect.php');
-    if(isset($_POST['category_title'])){
-        if(!empty($_POST['category_title'])){  
-            $ins = $pdo->prepare('INSERT INTO category (categoryName) VALUES (?)');
+require('function.php');
+
+    if(isset($_POST['categoryName'])){
+        if(!empty($_POST['categoryName'])){  
+            $name = $_POST['categoryName'];
+            $ins = $pdo->prepare('INSERT INTO categories (categoryName) VALUE (:title)');
+            $ins->bindParam(':title', $name);
             $ins->execute();
             $message = 'Votre categorie a bien été créée';
         }else {
@@ -24,8 +28,8 @@ require_once('connect.php');
 
 <body>
 
-    <form action="" method="POST">
-        <input type="text" name="category_title" placeholder="title">
+    <form action="createCategory.php" method="POST">
+        <input type="text" name="categoryName" placeholder="title">
         <input type="submit">
         <?php if(isset($message)){echo $message;}?>
     </form>

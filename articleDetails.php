@@ -43,25 +43,20 @@ if(isset($_GET['id']) AND !empty($_GET['id'])){
 
 <body>
 <!-- Navigation -->
-<nav class="navbar navbar-inverse navbar-fixed-top">
-    <div class="container">
-        <div class="navbar-header">
-            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar"
-                    aria-expanded="false" aria-controls="navbar">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-        </div>
-        <div id="navbar" class="collapse navbar-collapse">
-            <ul class="nav navbar-nav">
-                <li class="active"><a href="Acceuil.php">Acceuil</a></li>
-                <li><a href="about.html">A propos</a></li>
-                <li><a href="about.html">Contact</a></li>
-            </ul>
-        </div>
-        <!--/.nav-collapse -->
+<style>
+    .nav-item{
+        padding-right: .5rem;
+        padding-left: .5rem;
+    }
+</style>
+<nav class="navbar navbar-expand-lg navbar-light bg-dark">
+    <a class="navbar-brand" href="#">Japan</a>
+    <div class="collapse navbar-collapse" id="navbarText">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item active"><a href="Acceuil.php">Acceuil</a></li>
+            <li class="nav-item active"><a href="about.html">A propos</a></li>
+            <li class="nav-item active"><a href="about.html">Contact</a></li>
+        </ul>
     </div>
 </nav>
 
