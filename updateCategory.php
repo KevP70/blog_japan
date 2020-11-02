@@ -32,7 +32,7 @@ require_once('connect.php');
    
     <form action="updateCategory.php" method="POST">
         <input type="hidden" name="id" value="<?= $category['id']?>">
-        <input type="text" name="category_title" placeholder="title">
+        <input type="text" name="categoryName" placeholder="title">
         <input type="submit" name="category_modifier" value="Modifier">
     </form>
 

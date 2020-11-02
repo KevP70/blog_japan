@@ -9,7 +9,7 @@ require('function.php');
 
             $name = $_POST['categoryName'];
 
-            $ins = $pdo->prepare("INSERT INTO categoriy (categoryName) VALUES ('$name') ");
+            $ins = $pdo->prepare("INSERT INTO category (categoryName) VALUES ('$name') ");
             var_dump($ins);
             $post = $ins->execute();
 

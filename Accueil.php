@@ -9,11 +9,7 @@ $categories = $pdo->query('SELECT * FROM category ORDER BY id ASC');
 $post = $pdo->query('SELECT * FROM post_category');
 
 $sql = $pdo->prepare("SELECT
-                        post.title,
-                        post.content,
-                        post.slug,
-                        post.createdAt,
-                        post.updatedAt
+                        *
                         FROM post
                         JOIN post_category
                         ON post.id = post_category.post_id

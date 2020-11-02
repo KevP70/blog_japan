@@ -17,7 +17,7 @@ if(isset($_POST['title'])){
         $category = intval($_POST['category_id']);
         $date = date('Y-m-d');
 
-        $ins = $pdo->prepare("INSERT INTO article (title, content, createdAt, category_id) VALUES (:title, :content, NOW(), :category)");
+        $ins = $pdo->prepare("INSERT INTO post (title, content, createdAt, category_id) VALUES (:title, :content, NOW(), :category)");
         $ins->bindParam(':title', $title);
         $ins->bindParam(':content', $content);
         $ins->bindParam(':category', $category);
