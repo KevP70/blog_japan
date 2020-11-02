@@ -5,7 +5,7 @@ require_once('connect.php');
 
 $id = $_REQUEST["article_delete"];
 $id = intval($id);
-$req = $pdo->prepare("DELETE FROM article WHERE id = $id ");
+$req = $pdo->prepare("DELETE FROM post WHERE id = $id ");
 $req->execute();
 
 ?>

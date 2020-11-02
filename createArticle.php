@@ -4,7 +4,7 @@ session_start();
 require_once('connect.php');
 require('function.php');
 
-$query = $pdo->prepare('SELECT * FROM categories');
+$query = $pdo->prepare('SELECT * FROM category');
 $query->execute();
 $categories = $query->fetchAll();
 

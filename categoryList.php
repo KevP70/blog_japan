@@ -2,7 +2,7 @@
 session_start();
 require_once('connect.php');
 
-    $category = $pdo->query('SELECT * FROM categories ORDER BY id DESC');
+    $category = $pdo->query('SELECT * FROM category ORDER BY id DESC');
 
 ?>
 <!DOCTYPE html>

@@ -1,9 +1,7 @@
 <?php
-try{
-// Connexion à la base
-    $pdo = new PDO('mysql:host=localhost;dbname=Blog_japan', 'root', '');
-    $pdo->exec('SET NAMES "UTF8"');
-} catch (PDOException $e){
-    echo 'Erreur : '. $e->getMessage();
-    die();
-}
+
+
+$pdo = new PDO('mysql:dbname=blog_japan;host=127.0.0.1', 'root', '', [
+    PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION
+    ]);
+    ?>

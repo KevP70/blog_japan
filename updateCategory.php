@@ -12,7 +12,7 @@ require_once('connect.php');
             $id = $_REQUEST['id'];
             $id = intval($id);
             $title = $_POST['categoryName'];
-            $category = $pdo->prepare("UPDATE categories SET categoryName = '$title' WHERE id = '$id'");
+            $category = $pdo->prepare("UPDATE category SET categoryName = '$title' WHERE id = '$id'");
             $category->execute();
     }    
       

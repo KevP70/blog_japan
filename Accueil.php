@@ -4,10 +4,23 @@ session_start();
 require_once('connect.php');
 require('function.php');
 
-$article = $pdo->query('SELECT * FROM article ORDER BY id ASC');
-$categories = $pdo->query('SELECT * FROM categories ORDER BY id ASC');
+$article = $pdo->query('SELECT * FROM post ORDER BY id ASC');
+$categories = $pdo->query('SELECT * FROM category ORDER BY id ASC');
+$post = $pdo->query('SELECT * FROM post_category');
 
-$sql = $pdo->prepare("SELECT * FROM categories, article WHERE article.category_id = categories.id ORDER BY createdAt ASC");
+$sql = $pdo->prepare("SELECT
+                        post.title,
+                        post.content,
+                        post.slug,
+                        post.createdAt,
+                        post.updatedAt,
+                        category.categoryName,
+                        category.slug
+                        FROM post
+                        JOIN post_category
+                        ON post.id = post_category.post_id
+                        JOIN category
+                        ON category.id = post_category.category_id;");
 $sql->execute();
 
 $articles = $sql->fetchAll(PDO::FETCH_ASSOC);
@@ -102,7 +115,7 @@ $articles = $sql->fetchAll(PDO::FETCH_ASSOC);
                         <a href="#"><img src="images/TokyoSafari.jpg" alt=""></a>
                     </div>
                     <div class="blog-post-body">
-                        <h2>TOURISMq</h2>
+                        <h2>TOURISME</h2>
                         <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quasi quisquam ipsa inventore?
                             Eos suscipit soluta laudantium cupiditate, quod commodi maxime corporis, rem ducimus
                             error perferendis quae optio veritatis officiis non!</p>
@@ -131,10 +144,10 @@ $articles = $sql->fetchAll(PDO::FETCH_ASSOC);
                         <div class="widget-container">
                             <form action="byCat.php" method="GET">
                                 <div>
-                                    <select name="category_id">
+                                    <select name="id">
                                         <option type="text">Voir les articles par Catégorie</option>
-                                        <?php foreach ($categories as $category): ?>
-                                            <option value="<?= $category['id'] ?>"><?= $category['categoryName'] ?></option>
+                                        <?php foreach ($categories as $cat): ?>
+                                            <option value="<?= $cat['id'] ?>"><?= $cat['categoryName'] ?></option>
                                         <?php endforeach; ?>
                                     </select>
                                 </div>

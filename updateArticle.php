@@ -2,7 +2,7 @@
 session_start();
 require_once('connect.php');
 
-    $ins = $pdo->prepare('SELECT * FROM article WHERE id= :num');
+    $ins = $pdo->prepare('SELECT * FROM post WHERE id= :num');
     $ins->bindParam(':num', $_GET['article_modifier']);
     $ins->execute();
     $article = $ins->fetch();
@@ -13,7 +13,7 @@ require_once('connect.php');
             $title = $_POST['title'];
             $content = $_POST['content'];
             $date = date('Y-m-d');
-            $article = $pdo->prepare("UPDATE article SET title = '$title', content = '$content', updatedAt = '$date' WHERE id = '$id'");
+            $article = $pdo->prepare("UPDATE post SET title = '$title', content = '$content', updatedAt = '$date' WHERE id = '$id'");
             $article->execute();
     }     
 

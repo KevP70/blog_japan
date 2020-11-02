@@ -4,7 +4,7 @@ require_once('connect.php');
 
 if(isset($_GET['id']) AND !empty($_GET['id'])){
     $get_id = htmlspecialchars($_GET['id']);
-    $article = $pdo->prepare('SELECT * FROM article WHERE id = ?');
+    $article = $pdo->prepare('SELECT * FROM post WHERE id = ?');
     $article->execute(array($get_id));
     if($article->rowCount() == 1){
         $article = $article->fetch();
