@@ -13,9 +13,7 @@ $sql = $pdo->prepare("SELECT
                         post.content,
                         post.slug,
                         post.createdAt,
-                        post.updatedAt,
-                        category.categoryName,
-                        category.slug
+                        post.updatedAt
                         FROM post
                         JOIN post_category
                         ON post.id = post_category.post_id
@@ -144,7 +142,7 @@ $articles = $sql->fetchAll(PDO::FETCH_ASSOC);
                         <div class="widget-container">
                             <form action="byCat.php" method="GET">
                                 <div>
-                                    <select name="id">
+                                    <select name="category_id">
                                         <option type="text">Voir les articles par Catégorie</option>
                                         <?php foreach ($categories as $cat): ?>
                                             <option value="<?= $cat['id'] ?>"><?= $cat['categoryName'] ?></option>
