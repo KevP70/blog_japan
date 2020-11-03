@@ -1,4 +1,5 @@
 <?php
+
 session_start();
 require_once('connect.php');
 require('function.php');
@@ -9,14 +10,13 @@ require('function.php');
 
             $name = $_POST['categoryName'];
 
-            $ins = $pdo->prepare("INSERT INTO category (categoryName) VALUES ('$name') ");
-            var_dump($ins);
-            $post = $ins->execute();
+            $ins = $pdo->prepare("INSERT INTO category (categoryName) VALUES $name ");
 
-           
+            $ins->execute();
 
             $message = 'Votre categorie a bien été créée';
         }
+
 ?>
 <!DOCTYPE html>
 <html lang="fr">

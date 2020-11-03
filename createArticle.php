@@ -16,11 +16,13 @@ if(isset($_POST['title'])){
         $content = $_POST['content'];
         $category = intval($_POST['category_id']);
         $date = date('Y-m-d');
+        $slug = creatSlug($title);
 
-        $ins = $pdo->prepare("INSERT INTO post (title, content, createdAt, category_id) VALUES (:title, :content, NOW(), :category)");
+        $ins = $pdo->prepare("INSERT INTO post (title, content, createdAt, category_id, slug) VALUES (:title, :content, NOW(), :category, :slug)");
         $ins->bindParam(':title', $title);
         $ins->bindParam(':content', $content);
         $ins->bindParam(':category', $category);
+        $ins->bindParam(':slug', $slug);
         $ins->execute();
 
         $message = 'Votre article a bien été ajouté';
