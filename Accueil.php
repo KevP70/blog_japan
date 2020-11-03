@@ -27,16 +27,20 @@ $articles = $sql->fetchAll(PDO::FETCH_ASSOC);
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
     <meta name="description" content="">
     <meta name="author" content="">
     <link rel="icon" href="favicon.ico">
     <title>Blog Japan</title>
+    <!-- Bootstrap core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+    <!-- Custom styles for this template -->
     <link href="css/jquery.bxslider.css" rel="stylesheet">
     <link href="css/style.css" rel="stylesheet">
 </head>
 <body>
+<!-- Navigation -->
 <style>
     .nav-item {
         padding-right: .5rem;
@@ -56,24 +60,24 @@ $articles = $sql->fetchAll(PDO::FETCH_ASSOC);
 
 <div class="container">
     <header>
-        <a href="#"><img src="images/japanlogo.png"></a>
+
     </header>
     <section class="main-slider">
         <ul class="bxslider">
             <li>
                 <div class="slider-item"><img src="https://picsum.photos/1140/500?random=1">
-                    <h2><a href="createdArticle.php" title="Vintage-Inspired Finds for Your Home">Ajouter un article</a>
-                    </h2></div>
+                    <h2><a>Japan</a></h2>
+                </div>
             </li>
             <li>
                 <div class="slider-item"><img src="https://picsum.photos/1140/500?random=1">
-                    <h2><a href="createdArticle.php" title="Vintage-Inspired Finds for Your Home">Ajouter un article</a>
-                    </h2></div>
+                    <h2><a>Japan</a></h2>
+                </div>
             </li>
             <li>
                 <div class="slider-item"><img src="https://picsum.photos/1140/500?random=1">
-                    <h2><a href="createdArticle.php" title="Vintage-Inspired Finds for Your Home">Ajouter un article</a>
-                    </h2></div>
+                    <h2><a>Japan</a></h2>
+                </div>
             </li>
         </ul>
     </section>
@@ -85,10 +89,11 @@ $articles = $sql->fetchAll(PDO::FETCH_ASSOC);
                         <a href="#"><img src="images/food.jpg" alt=""></a>
                     </div>
                     <div class="blog-post-body">
-                        <h2>SEASONS</h2>
+                        <h2><a href="#">JAPANESE  FOOD</a></h2>
                         <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quasi quisquam ipsa inventore?
                             Eos suscipit soluta laudantium cupiditate, quod commodi maxime corporis, rem ducimus
                             error perferendis quae optio veritatis officiis non!</p>
+
                     </div>
                 </article>
                 <!-- article -->
@@ -97,10 +102,11 @@ $articles = $sql->fetchAll(PDO::FETCH_ASSOC);
                         <a href="#"><img src="images/visit.jpg" alt=""></a>
                     </div>
                     <div class="blog-post-body">
-                        <h2>JAPANESE FOOD</h2>
+                        <h2><a href="#">JAPAN TOURISME</a></h2>
                         <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quasi quisquam ipsa inventore?
                             Eos suscipit soluta laudantium cupiditate, quod commodi maxime corporis, rem ducimus
                             error perferendis quae optio veritatis officiis non!</p>
+
                     </div>
                 </article>
                 <!-- article -->
@@ -109,10 +115,11 @@ $articles = $sql->fetchAll(PDO::FETCH_ASSOC);
                         <a href="#"><img src="images/TokyoSafari.jpg" alt=""></a>
                     </div>
                     <div class="blog-post-body">
-                        <h2>TOURISME</h2>
+                        <h2><a href="#">JAPAN LIFE</a></h2>
                         <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quasi quisquam ipsa inventore?
                             Eos suscipit soluta laudantium cupiditate, quod commodi maxime corporis, rem ducimus
                             error perferendis quae optio veritatis officiis non!</p>
+
                     </div>
                 </article>
             </div>
@@ -134,21 +141,43 @@ $articles = $sql->fetchAll(PDO::FETCH_ASSOC);
                     </div>
                     <!-- sidebar-widget -->
                     <div class="sidebar-widget">
-                        <h3 class="sidebar-title">Categories</h3>
+                        <h3 class="sidebar-title">Gérer le contenu</h3>
+                        <div class="widget-container">
+                            <ul class="ld">
+                                <li>
+                                    <a href="createArticle.php" title="gererContenu">Ajouter un article</a>
+                                </li>
+                                <li>
+                                    <a href="createCategory.php" title="gererContenu">Ajouter une catégorie</a>
+                                </li>
+                                <li>
+                                    <a href="categoryList.php" title="gererContenu">Gérer les catégories</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <!-- sidebar-widget -->
+                    <div class="sidebar-widget">
+                        <h3 class="sidebar-title">Articles</h3>
                         <div class="widget-container">
                             <form action="byCat.php" method="GET">
                                 <div>
                                     <select name="category_id">
                                         <option type="text">Voir les articles par Catégorie</option>
-                                        <?php foreach ($categories as $cat): ?>
-                                            <option value="<?= $cat['id'] ?>"><?= $cat['categoryName'] ?></option>
-                                        <?php endforeach; ?>
+                                        <?php
+                                        foreach ($categories as $category):
+                                            ?>
+                                            <option value="<?= $category['id'] ?>"><?= $category['categoryName'] ?></option>
+                                        <?php
+                                        endforeach;
+                                        ?>
                                     </select>
                                 </div>
                                 <button type="submit" class="btn btn-success">Envoyer</button>
                             </form>
                         </div>
                     </div>
+
             </div>
             </aside>
         </div>

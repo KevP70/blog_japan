@@ -29,7 +29,6 @@ if(isset($_POST['title'])){
         $message = "Veuillez remplir tous les champs";
     }
 }
-
 ?>
 <!DOCTYPE html>
 <html lang="fr">
@@ -51,6 +50,7 @@ if(isset($_POST['title'])){
 </head>
 <body>
 
+
 <style>
     .nav-item{
         padding-right: .5rem;
@@ -68,6 +68,9 @@ if(isset($_POST['title'])){
     </div>
 </nav>
 
+<hr>
+
+<h1>Ajouter un article</h1>
 <hr>
 <div class="m-auto">
     <div class="col-md-6">
@@ -97,7 +100,7 @@ if(isset($_POST['title'])){
         </div>
     </div>
 </div>
-
+<hr>
 <footer class="footer">
 
     <div class="footer-bottom">
