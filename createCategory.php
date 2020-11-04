@@ -9,8 +9,13 @@ require('function.php');
     if(isset($_POST['categoryName'])) { 
 
             $name = $_POST['categoryName'];
+            $slug = creatSlug($name);
 
-            $ins = $pdo->prepare("INSERT INTO category (categoryName) VALUES $name ");
+            $ins = $pdo->prepare("INSERT INTO category (categoryName, slug) VALUES (:name, :slug) ");
+
+            $ins->bindParam(':name', $name);
+
+            $ins->bindParam(':slug', $slug);
 
             $ins->execute();
 
